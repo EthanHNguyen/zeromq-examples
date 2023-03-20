@@ -1,6 +1,10 @@
 # Python ZeroMQ Example
 
-This is an example of a message flow from REQ socket to two ROUTER sockets via a DEALER socket, with replies.
+This repository contains an example of ZeroMQ messaging using the Request-Reply pattern. It consists of four sockets: a REQ socket, two ROUTER sockets, and a DEALER socket. The message flow is as follows:
+
+    REQ -> ROUTER1 -> DEALER -> ROUTER2 -> REQ (replies)
+
+At each step, the message is printed to the console.
 
 ## Installation
 
