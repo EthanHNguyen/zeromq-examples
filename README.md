@@ -8,27 +8,7 @@ At each step, the message is printed to the console.
 
 ## Installation
 
-To run this example, you will need to have Python 3 and ZeroMQ installed.
-
-### Conda
-
-If you do not have conda installed, you can download and install it from [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
-
-Once conda is installed, you can create a new environment with the necessary dependencies using the following command:
-
-```
-conda create --name pyzmq python=3 zmq
-```
-
-This will create a new conda environment called `pyzmq` with Python 3 and ZeroMQ installed.
-
-### PyZMQ
-
-To install PyZMQ,
-
-```
-conda install pyzmq
-```
+To run this example, you will need to have Python 3 and ZeroMQ installed. A conda environment.yaml is provided.
 
 ## Usage
 
