@@ -26,7 +26,7 @@ poller.register(router_socket2, zmq.POLLIN)
 
 # Send message
 message = [b"Hello"]
-print(f"REQ sent: {message}")
+print(f"REQ sent: {message}\n")
 req_socket.send_multipart(message)
 
 while True:
@@ -37,7 +37,7 @@ while True:
     if req_socket in sockets:
         # Receive the message and print it
         message = req_socket.recv_multipart()
-        print(f"\nREQ received: {message[0]}")
+        print(f"\nREQ received: {message}")
         break
 
     # If first ROUTER socket has input
@@ -46,14 +46,14 @@ while True:
         message = router_socket.recv_multipart()
         print(f"ROUTER1 -> DEALER1 -> ROUTER2: {message}")
         dealer_socket.send_multipart(message)
-    
+
     # If DEALER socket has input
     if dealer_socket in sockets:
         # Forward message to REQ socket
         message = dealer_socket.recv_multipart()
         print(f"DEALER -> ROUTER1 -> REQ: {message}")
         router_socket.send_multipart(message)
-    
+
     # If second ROUTER socket has input
     if router_socket2 in sockets:
         # Receive message from second ROUTER socket
@@ -64,6 +64,3 @@ while True:
 
         print(f"ROUTER2 -> DEALER1: {message}")
         router_socket2.send_multipart(message)
-
-
-
